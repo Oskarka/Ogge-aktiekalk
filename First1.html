@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aktiekalk</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<meta charset="Utf-8">
+</head>
+<body>
+<div class="col-sm-2"></div>
+<div class="col-sm-2">
+
+		<form>
+			<div class="form-group">
+				Insättningsbelopp: <input value="" type="text" id="IB" class="form-control"></input>
+				Genomsnittlig direktavkastning: <input type="text" id="Gd" class="form-control"></input>
+				Antal år: <input type="text" id="Aå" class="form-control"> </input>
+				Förväntad inflation: <input type="text" id="Fi" class="form-control"></input>
+				Kapitalskatt: <input type="text" id="K" class="form-control"></input>
+			</div>
+				<input type="submit" onclick="calcfunc();" class="btn btn-default">
+				<h3 class="text-danger" id="resultat"></h3>
+			
+		</form>
+		
+</div>
+<div class="col-sm-2"></div>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+
+function calcfunc(){
+
+var IB = document.getElementByid('IB').value;
+var Gd = document.getElementByid('Gd').value;
+var Aå = document.getElementByid('Aå').value;
+//var Fi = document.getElementByid('Fi').value;
+//var K = document.getElementByid('K').value;
+
+document.getElementByid('resultat').innerHTML = parseInt(IB) * (parseInt(Gd) ** parseInt(Aå));
+// test! document.getElementByid('resultat').innerHTML = parseInt(IB) + (parseInt(Gd);
+}
+
+</script>
+</body>
+</html>
+

@@ -9,36 +9,33 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-2">
 
-		<form>
 			<div class="form-group">
-				Insättningsbelopp: <input value="" type="text" id="IB" class="form-control"></input>
+				Insättningsbelopp: <input type="text" id="IB" class="form-control"></input>
+				Insättning / månad: <input type="text" id="IM" class="form-control"></input>
 				Genomsnittlig direktavkastning: <input type="text" id="Gd" class="form-control"></input>
 				Antal år: <input type="text" id="Aå" class="form-control"> </input>
 				Förväntad inflation: <input type="text" id="Fi" class="form-control"></input>
 				Kapitalskatt: <input type="text" id="K" class="form-control"></input>
 			</div>
-				<input type="submit" onclick="calcfunc();" class="btn btn-default">
+				<button onclick="calcfunc();" class="btn btn-default">Räkna ut!</button>
 				<h3 class="text-danger" id="resultat"></h3>
 			
-		</form>
+		
 		
 </div>
 <div class="col-sm-2"></div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" language="javascript" charset="utf-8">
-
 function calcfunc(){
-
-var IB = document.getElementByid('IB').value;
-var Gd = document.getElementByid('Gd').value;
-var Aå = document.getElementByid('Aå').value;
-//var Fi = document.getElementByid('Fi').value;
-//var K = document.getElementByid('K').value;
-
-document.getElementByid('resultat').innerHTML = parseInt(IB) * (parseInt(Gd) ** parseInt(Aå));
+var IB = $('#IB').val();
+var Gd = $('#Gd').val();
+var Aå = $('#Aå').val();
+//var Fi = $('#Fi').val();
+//var K = $('#K').val();
+console.log(IB,Gd,Aå);
+$('#resultat').text(parseFloat(IB) * (Math.pow(parseFloat(Gd) / 100 + 1,parseFloat(Aå))));
 // test! document.getElementByid('resultat').innerHTML = parseInt(IB) + (parseInt(Gd);
 }
-
 </script>
 </body>
 </html>

@@ -10,10 +10,10 @@
 <div class="col-sm-2">
 
 			<div class="form-group">
-				Insättningsbelopp: <input type="text" id="IB" class="form-control"></input>
-				Insättning / månad: <input type="text" id="IM" class="form-control"></input>
-				Genomsnittlig direktavkastning: <input type="text" id="Gd" class="form-control"></input>
-				Antal år: <input type="text" id="Aå" class="form-control"> </input>
+				Insättningsbelopp: <input value="10000" type="text" id="IB" class="form-control"></input>
+				Insättning / månad: <input value="1000" type="text" id="IM" class="form-control"></input>
+				Genomsnittlig direktavkastning: <input value="5" type="text" id="Gd" class="form-control"></input>
+				Antal år: <input value="10" type="text" id="Aa" class="form-control"> </input>
 				Förväntad inflation: <input type="text" id="Fi" class="form-control"></input>
 				Kapitalskatt: <input type="text" id="K" class="form-control"></input>
 			</div>
@@ -29,12 +29,26 @@
 function calcfunc(){
 var IB = $('#IB').val();
 var Gd = $('#Gd').val();
-var Aå = $('#Aå').val();
+var Aa = $('#Aa').val();
+var IM = $('#IM').val();
 //var Fi = $('#Fi').val();
 //var K = $('#K').val();
-console.log(IB,Gd,Aå);
-$('#resultat').text(parseFloat(IB) * (Math.pow(parseFloat(Gd) / 100 + 1,parseFloat(Aå))));
-// test! document.getElementByid('resultat').innerHTML = parseInt(IB) + (parseInt(Gd);
+
+
+for (var i = 0; i < 2; i++){
+	if(i = 0){
+		var Slutvarde =+ parseFloat(IB) + (parseFloat(IM) * 12) * (parseFloat(Gd) / 100 + 1)
+
+	}
+	else{
+		var Slutvarde =+ (parseFloat(IM) * 12) * (parseFloat(Gd) / 100 + 1)
+	}
+}
+
+$('#resultat').text(Slutvarde);
+
+console.log(IB,Gd,Aa,IM,Slutvarde);
+
 }
 </script>
 </body>

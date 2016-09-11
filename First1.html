@@ -3,64 +3,64 @@
 <head>
 	<title>Aktiekalk</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<meta charset="Utf-8">
+	<meta charset="Utf-8"/>
 
-	<style type="text/css"> 
-		body{ background-image:url(grey.png); } 
-		#kalk {top: 100px;}
+	<style type="text/css">
+		body {
+			background-image:url(grey.png);
+		}
 
+		#kalk {
+			top: 100px;
+		}
 	</style>
 </head>
 <body>
-
-
 	<div class="col-sm-2"></div>
-	<center>
-		<div id="kalk" class="col-sm-2">
-
-			<div class="form-group">
-				Insättningsbelopp: <input value="10000" type="text" id="IB" class="form-control"></input>
-				Insättning / månad: <input value="1000" type="text" id="IM" class="form-control"></input>
-				Genomsnittlig direktavkastning: <input value="5" type="text" id="Gd" class="form-control"></input>
-				Antal år: <input value="10" type="text" id="Aa" class="form-control"> </input>
-				Förväntad inflation: <input type="text" id="Fi" class="form-control"></input>
-				Kapitalskatt: <input type="text" id="K" class="form-control"></input>
-			</div>
-			<button onclick="calcfunc();" class="btn btn-default">Räkna ut!</button>
-			<h3 class="text-danger" id="resultat"></h3>
-			
-			
-			
+	<div id="kalk" class="col-sm-2">
+		<div class="form-group">
+			Insättningsbelopp: <input value="10000" type="text" id="IB" class="form-control">
+			Insättning / månad: <input value="1000" type="text" id="IM" class="form-control">
+			Genomsnittlig direktavkastning: <input value="5" type="text" id="Gd" class="form-control">
+			Antal år: <input value="10" type="text" id="Aa" class="form-control">
+			Förväntad inflation: <input type="text" id="Fi" class="form-control">
+			Kapitalskatt: <input type="text" id="K" class="form-control">
 		</div>
-	</center>
+		<button onclick="calcfunc();" class="btn btn-default">Räkna ut!</button>
+		<h3 class="text-danger" id="resultat"></h3>
+	</div>
 	<div class="col-sm-2"></div>
-
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" language="javascript" charset="utf-8">
+		function pFloat(id){
+			var a = parseFloat($(id).val()); // Hämtar data från elementet och parsear till en float
+
+			if(a == undefined || isNaN(a)) // Kollar om parsen misslyckades, isåfall return 0
+				return 0;
+
+			return a;
+		}
+
 		function calcfunc(){
-			var IB = $('#IB').val();
-			var Gd = $('#Gd').val();
-			var Aa = $('#Aa').val();
-			var IM = $('#IM').val();
-//var Fi = $('#Fi').val();
-//var K = $('#K').val();
+			var IB = pFloat('#IB');
+			var Gd = pFloat('#Gd');
+			var AntalAr = pFloat('#Aa');
+			var IM = pFloat('#IM');
+			//var Fi = $('#Fi').val();
+			//var K = $('#K').val();
 
-var Slutvarde = parseFloat(IB);
+			var Slutvarde = IB;
 
-for (var i = 0; i < Aa; i++){
+			for (var i = 0; i < AntalAr; i++){
+				Slutvarde = (Slutvarde + (IM * 1)) * (Gd / 100 + 1)
+			}
 
-	Slutvarde =+ (parseFloat(IM) * 12) * (parseFloat(Gd) / 100 + 1)
+			$('#resultat').text(Slutvarde);
 
-}
-
-$('#resultat').text(Slutvarde);
-
-
-console.log(IB,Gd,Aa,IM,Slutvarde);
-
-}
-</script>
+			console.log(IB,Gd,AntalAr,IM,Slutvarde);
+		}
+	</script>
 </body>
 </html>
 

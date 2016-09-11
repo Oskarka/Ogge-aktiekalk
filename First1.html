@@ -4,10 +4,19 @@
 	<title>Aktiekalk</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<meta charset="Utf-8">
+
+	<style type="text/css"> 
+		body{ background-image:url(grey.png); } 
+		#kalk {top: 100px;}
+
+	</style>
 </head>
 <body>
-<div class="col-sm-2"></div>
-<div class="col-sm-2">
+
+
+	<div class="col-sm-2"></div>
+	<center>
+		<div id="kalk" class="col-sm-2">
 
 			<div class="form-group">
 				Insättningsbelopp: <input value="10000" type="text" id="IB" class="form-control"></input>
@@ -17,20 +26,23 @@
 				Förväntad inflation: <input type="text" id="Fi" class="form-control"></input>
 				Kapitalskatt: <input type="text" id="K" class="form-control"></input>
 			</div>
-				<button onclick="calcfunc();" class="btn btn-default">Räkna ut!</button>
-				<h3 class="text-danger" id="resultat"></h3>
+			<button onclick="calcfunc();" class="btn btn-default">Räkna ut!</button>
+			<h3 class="text-danger" id="resultat"></h3>
 			
-		
-		
-</div>
-<div class="col-sm-2"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" language="javascript" charset="utf-8">
-function calcfunc(){
-var IB = $('#IB').val();
-var Gd = $('#Gd').val();
-var Aa = $('#Aa').val();
-var IM = $('#IM').val();
+			
+			
+		</div>
+	</center>
+	<div class="col-sm-2"></div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" language="javascript" charset="utf-8">
+		function calcfunc(){
+			var IB = $('#IB').val();
+			var Gd = $('#Gd').val();
+			var Aa = $('#Aa').val();
+			var IM = $('#IM').val();
 //var Fi = $('#Fi').val();
 //var K = $('#K').val();
 
@@ -43,9 +55,11 @@ for (var i = 0; i < 2; i++){
 	else{
 		var Slutvarde =+ (parseFloat(IM) * 12) * (parseFloat(Gd) / 100 + 1)
 	}
+
 }
 
 $('#resultat').text(Slutvarde);
+
 
 console.log(IB,Gd,Aa,IM,Slutvarde);
 

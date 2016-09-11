@@ -47,17 +47,17 @@
 //var K = $('#K').val();
 
 var Slutvarde = parseFloat(IB);
+var antalar = parseFloat(Aa);
+for (var i = 0; i < antalar; i++){
 
-for (var i = 0; i < Aa; i++){
-
-	Slutvarde =+ (parseFloat(IM) * 12) * (parseFloat(Gd) / 100 + 1)
+	Slutvarde = (Slutvarde + (parseFloat(IM) * 1)) * (parseFloat(Gd) / 100 + 1)
 
 }
 
 $('#resultat').text(Slutvarde);
 
 
-console.log(IB,Gd,Aa,IM,Slutvarde);
+console.log(IB,Gd,antalar,IM,Slutvarde);
 
 }
 </script>

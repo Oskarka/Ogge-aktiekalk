@@ -53,10 +53,10 @@
 			var Slutvarde = IB;
 
 			for (var i = 0; i < AntalAr; i++){
-				Slutvarde = (Slutvarde + (IM * 1)) * (Gd / 100 + 1)
+				Slutvarde = (Slutvarde + (IM * 12)) * (Gd / 100 + 1)
 			}
 
-			$('#resultat').text(Slutvarde);
+			$('#resultat').text(Slutvarde.toFixed(2));
 
 			console.log(IB,Gd,AntalAr,IM,Slutvarde);
 		}
